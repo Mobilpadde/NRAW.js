@@ -6,7 +6,7 @@ NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.
 ## How to
 Start by installing NRAW.js:
 ```sh
-$ npm install nraw
+$ npm install nraw  
 ```
 Then require it in your server:
 ````javascript
