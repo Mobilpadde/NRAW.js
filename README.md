@@ -12,7 +12,7 @@ Then require it in your server:
 ````javascript
 var r = require("nraw");
 ```
-Now, make a new instance of the `r`-object, which you can do my providing a User-agent.
+Now, make a new instance of the `r`-object, which you can do by providing a User-agent.
 ```javascript
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde");
 ```
@@ -50,8 +50,8 @@ Reddit.user("Mobilpadde").sort("top").limit(5).exec(function(data){
     // Some super awesome code
 })
 ```
-Pretty cool, 'eh? 
-"But what if I want to see seven of my liked posts and comments?" - That's super easy too! Simply use the `login`-function and the`liked`-[filter][3]:
+Pretty cool, 'eh?  
+"But what if I want to see seven of my liked posts and comments?" - That's super easy too! Simply use the `login`-function and the `liked`-[filter][2]:
 ```javascript
 Reddit.login(user, pass).user("Mobilpadde").liked().limit(7).exec(function(data){
     // Some super awesome code
@@ -59,7 +59,7 @@ Reddit.login(user, pass).user("Mobilpadde").liked().limit(7).exec(function(data)
 ```
 
 ### Subreddit-requests
-Get the 25 latest posts (Links, self-posts) of a given subreddit:
+Get the 25 latest posts (Links and self-posts) of a given subreddit:
 ```javascript
 Reddit.subreddit("CatReactionGifs").exec(function(data){
     // Some super awesome code
@@ -85,29 +85,29 @@ Reddit.subreddit("CatReactionGifs").post("2zmdf9").exec(function(data){
 	// Some super awesome code
 })
 ```
-"Whoa, that's pretty awesome, but can I post a link?" - Of cause you can! We just need to login and use the `post´-function:
+"Whoa, that's pretty awesome, but can I post a link?" - Of cause you can! We just need to login and use the `post-function:
 ```javascript
 Reddit.login(user, pass).subreddit("CatReactionGifs").post().link("How I feel when there's only one pizza slice left", "http://i.imgur.com/CFSwHdq.gif").exec(function(data){
     // Some super awesome code
 })
 ```
-"Wow! C-c-can I subscribe to subreddits then?" - Yea you can! Tough we'll have to get our hands a bit dirty:
+"Wow! C-c-can I subscribe to subreddits then?" - Yea you can! Though we'll have to get our hands a bit dirty:
 ```javascript
 Reddit.subreddit("CatReactionGifs", function(info){
-		Reddit.login(user, pass).subreddit(info.data.children[0].data.subreddit_id).subscribe(function(data){
-			// Some super awesome code
-	    })
-    })
+	Reddit.login(user, pass).subreddit(info.data.children[0].data.subreddit_id).subscribe(function(data){
+		// Some super awesome code
+	 })
+ })
 ```
 "Awesome! But what if I dont like a subreddit anymore?" - Well, that's a bit tougher! Ha! Got ya! You should've seen your face! Priceless! Don't worry, it's super easy too:
 ```javascript
 Reddit.subreddit("DogReactionGifs", function(info){
-		Reddit.login(user, pass).subreddit(info.data.children[0].data.subreddit_id).unsubscribe(function(data){
-			// Some super awesome code
-	    })
-    })
+	Reddit.login(user, pass).subreddit(info.data.children[0].data.subreddit_id).unsubscribe(function(data){
+		// Some super awesome code
+	})
+})
 ```
-Or we can search through a subreddit:
+We can even search through a subreddit:
 ```javascript
 Reddit.subreddit("CatReactionGifs").search("Cat").exec(function(data){
 	// Some super awesome code
@@ -123,16 +123,15 @@ Reddit.user("Mobilpadde").multireddit("kittehs").exec(function(data){
 ```
 
 ### Comments
-How about we play abount with some comments for a while?
+How about we play around with some comments for a while?
 
-Let's get all new comments (Login so we don't have to wait 30 seconds before we get new comments):
+Let's get all new comments (Login so we don't have to wait 30 seconds before we can request new comments):
 ```javascript
 Reddit.login(user, pass).comments().exec(function(data){
     // Some super awesome code
 })
 ```
-"Well, now for a tough one! Can I post comments?" - Yes. Yes you can!
-All you need is an id od the parent (In this case we're gonna use `t3_31cvo9`):
+"Well, now for a tough one! Can I post comments?" - Yes! Yes you can! All you need is an id of the parent (In this case we're gonna use `t3_31cvo9`):
 ```javascript
 Reddit.login(user, pass).post().comment("t3_31cvo9", "I love you!").exec(function(data){
 	// Some super awesome code
@@ -151,8 +150,8 @@ Reddit.login(user, pass).comment("t1_cq0ev3j").delete().exec(function(data){
 })
 ```
 
-### Post-specific
-You can also delete a post, if you misspelled something:
+### Posts
+You can also delete a post if you misspelled something:
 ```javascript
 Reddit.login(user, pass).post("t3_31cvo9").delete().exec(function(data){
     // Some super awesome code
@@ -180,7 +179,7 @@ Reddit.login(user, pass).post("t3_31bji2").downvote().exec(function(data){
 ```
 
 ### Searching
-You can also search for every thread containing the word `cat`:
+You can also search for every thread - in every subreddit - containing the word `cat`:
 ```javascript
 Reddit.search("cat").exec(function(data){
 	// Some super awesome code
