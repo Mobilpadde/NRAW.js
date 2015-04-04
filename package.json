@@ -8,10 +8,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/Mobilpadde/NRAW.js.git"
 	},
 	"bugs": {
-		"url": "/issues"
+		"url": "https://github.com/Mobilpadde/NRAW.js/issues"
 	},
 	"keywords": [
 		"Reddit",
