@@ -25,8 +25,8 @@ helper.prototype.querify = function(get){
 					 "&text=" + encodeURI(that.postage.self.text) + 
 					 "&sr=" + that.subreddit + 
 					 "&kind=self";
-		else if(that.postId) query += "id=" + that.postId;
-		else if(that.commentId) query += "id=" + that.commentId;
+		else if(that.postId && !that.commentId) query += "id=" + that.postId;
+		else if(that.postId && that.commentId) query += "id=" + that.commentId;
 		else if(that.subscribe && that.subreddit) query += "action=" + that.subscribe + "&sr=" + that.subreddit;
 		else throw new Error("Something went wrong.");
 		if(that.vote != null) query += "&dir=" + that.vote;
@@ -119,7 +119,6 @@ helper.prototype.login = function(callback){
 }
 
 helper.prototype.getStuff = function(callback){
-	console.log(this.url(true) + this.querify(true));
 	request.get(this.url(true) + this.querify(true), {
 		"headers": {
 			"User-Agent": that.userAgent,
@@ -143,8 +142,11 @@ helper.prototype.postStuff = function(callback){
 		}
 	}, function(err, response, body){
 		if(err) callback(err);
-		if(response.statusCode != 404) callback(JSON.parse(body));
-		else callback(response);
+		if(response.statusCode != 404){
+			var parsed = JSON.parse(body);
+			if(Object.keys(parsed).length == 0) callback({Yay: true});
+			else callback(parsed);
+		}else callback(response);
 		return true;
 	})
 }

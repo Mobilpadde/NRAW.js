@@ -1,5 +1,22 @@
 # NRAW.js
 
+## Index
+ - [Home](#nrawjs)
+ - [Description](#description)
+ - [How to](#how-to)
+ - [Execute requests](#execute-requests)
+ - [User requests](#user-requests)
+ - [Subreddit requests](#subreddit-requests)
+ - [Multireddits](#multireddits)
+ - [Comments](#comments)
+ - [Posts](#posts)
+ - [Voting](#voting)
+ - [Searching](#searching)
+ - [Random](#random)
+ - [Queries][1]
+ - [Filters (User)][2]
+ - [Filters (Subreddit)][3]
+
 
 ## Description
 NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.
@@ -51,7 +68,7 @@ Reddit.user("Mobilpadde", function(data){
 In the examples below, the first method will be used.
 
 
-### User-requests
+### User requests
 Get the 25 latest posts (Links, self-posts or comments) of a given user:
 
 ```javascript
@@ -79,7 +96,7 @@ Reddit.login(user, pass).user("Mobilpadde").liked().limit(7).exec(function(data)
 ```
 
 
-### Subreddit-requests
+### Subreddit requests
 Get the 25 latest posts (Links and self-posts) of a given subreddit:
 
 ```javascript
@@ -227,7 +244,7 @@ Reddit.post("2v5oi5").related().exec(function(data){
 Upvoting:
 
 ```javascript
-Reddit.login(user, pass).post("t3_31bji2").upvote().exec(function(data){
+Reddit.login(user, pass).post("t3_2v5oi5").upvote().exec(function(data){
     // Some super awesome code
 })
 ```
@@ -235,7 +252,7 @@ Reddit.login(user, pass).post("t3_31bji2").upvote().exec(function(data){
 Unvoting:
 
 ```javascript
-Reddit.login(user, pass).post("t3_31bji2").unvote().exec(function(data){
+Reddit.login(user, pass).post("t3_2v5oi5").unvote().exec(function(data){
     // Some super awesome code
 })
 ```
@@ -243,10 +260,12 @@ Reddit.login(user, pass).post("t3_31bji2").unvote().exec(function(data){
 Downvoting:
 
 ```javascript
-Reddit.login(user, pass).post("t3_31bji2").downvote().exec(function(data){
+Reddit.login(user, pass).post("t3_2v5oi5").downvote().exec(function(data){
     // Some super awesome code
 })
 ```
+
+Ps. add `.comment("t1_coestfz")`, if you want to vote on a comment instead of a post.
 
 
 ### Searching
@@ -296,6 +315,6 @@ Reddit.random().exec(function(data){
  - rising
  - top
 
-[1]:https://github.com/Mobilpadde/NRAW.js#queries
-[2]:https://github.com/Mobilpadde/NRAW.js#filters-user
-[3]:https://github.com/Mobilpadde/NRAW.js#filters-subreddit
+[1]:#queries
+[2]:#filters-user
+[3]:#filters-subreddit
