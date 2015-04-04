@@ -1,5 +1,5 @@
 {
-  "name": "NRAW",
+  "name": "nraw",
   "description": "NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.",
   "version": "0.0.9",
   "main": "NRAW.js",
