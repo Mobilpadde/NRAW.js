@@ -1,7 +1,7 @@
 # NRAW.js
 
 ## Index
- - [Home][4]
+ - [Home][4]  
  - [Description](#description)
  - [How to](#how-to)
  - [Execute requests](#execute-requests)
@@ -19,12 +19,12 @@
 
 
 ## Description
-[Top][4]
+[Top][4]  
 NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.
 
 
 ## How to
-[Top][4]
+[Top][4]  
 Start by installing NRAW.js:
 
 ```sh
@@ -51,7 +51,7 @@ var Reddit = new r("Testbot v0.0.1 by Mobilpadde", cookie, modhash);
 
 
 ### Execute requests
-[Top][4]
+[Top][4]  
 Executing requests can be done in two ways:  
 
 ```javascript
@@ -72,7 +72,7 @@ In the examples below, the first method will be used.
 
 
 ### User
-[Top][4]
+[Top][4]  
 Get the 25 latest posts (Links, self-posts or comments) of a given user:
 
 ```javascript
@@ -101,7 +101,7 @@ Reddit.login(user, pass).user("Mobilpadde").liked().limit(7).exec(function(data)
 
 
 ### Subreddit
-[Top][4]
+[Top][4]  
 Get the 25 latest posts (Links and self-posts) of a given subreddit:
 
 ```javascript
@@ -182,7 +182,7 @@ Reddit.subreddit("cats").random().exec(function(data){
 
 
 ### Multireddits
-[Top][4]
+[Top][4]  
 You can also get multireddits:
 
 ```javascript
@@ -193,7 +193,7 @@ Reddit.user("Mobilpadde").multireddit("kittehs").exec(function(data){
 
 
 ### Comments
-[Top][4]
+[Top][4]  
 How about we play around with some comments for a while?
 
 Let's get all new comments (Login so we don't have to wait 30 seconds before we can request new comments):
@@ -230,7 +230,7 @@ Reddit.login(user, pass).comment("t1_cq0ev3j").delete().exec(function(data){
 
 
 ### Posts
-[Top][4]
+[Top][4]  
 You can also delete a post if you misspelled something:
 
 ```javascript
@@ -249,7 +249,7 @@ Reddit.post("2v5oi5").related().exec(function(data){
 
 
 ### Voting
-[Top][4]
+[Top][4]  
 Upvoting:
 
 ```javascript
@@ -278,7 +278,7 @@ Ps. add `.comment("t1_coestfz")`, if you want to vote on a comment instead of a 
 
 
 ### Searching
-[Top][4]
+[Top][4]  
 You can also search for every thread - in every subreddit - containing the word `cat`:
 
 ```javascript
@@ -289,7 +289,7 @@ Reddit.search("cat").exec(function(data){
 
 
 ### Random
-[Top][4]
+[Top][4]  
 How 'bout getting a random thread, you say?
 
 ```javascript
@@ -300,7 +300,7 @@ Reddit.random().exec(function(data){
 
 
 ## Queries
-[Top][4]
+[Top][4]  
  - after - *postId*
  - before - *postId*
  - count - 1- 100
@@ -309,7 +309,7 @@ Reddit.random().exec(function(data){
  - sort - "hot", "top", "new", "controversial"
 
 ## Filters (User)
-[Top][4]
+[Top][4]  
  - comments
  - disliked
  - hidden
@@ -319,7 +319,7 @@ Reddit.random().exec(function(data){
  - submitted
 
 ## Filters (Subreddit)
-[Top][4]
+[Top][4]  
  - comments
  - controversial
  - hot
@@ -329,7 +329,7 @@ Reddit.random().exec(function(data){
  - rising
  - top
 
-[Top][4]
+[Top][4]  
 
 [1]:#queries
 [2]:#filters-user
