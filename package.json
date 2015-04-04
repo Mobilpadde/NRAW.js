@@ -1,7 +1,7 @@
 {
   "name": "nraw",
   "description": "NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "main": "NRAW.js",
   "dependencies": {
     "request": "~2.42.0"
