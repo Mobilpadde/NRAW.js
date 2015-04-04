@@ -149,7 +149,7 @@ Reddit.subreddit("CatReactionGifs", function(info){
  })
 ```
 
-"Awesome! But what if I dont like a subreddit anymore?" - Well, that's a bit tougher! Ha! Got ya! You should've seen your face! Priceless! Don't worry, it's super easy too:
+"Awesome! But what if I don't like a subreddit anymore?" - Well, that's a bit tougher! Ha! Got ya! You should've seen your face! Priceless! Don't worry, it's super easy too:
 
 ```javascript
 Reddit.subreddit("DogReactionGifs", function(info){
