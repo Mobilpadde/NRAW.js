@@ -23,6 +23,18 @@ Reddit.prototype.login = function(username, password, callback){
 	else return this;
 }
 
+Reddit.prototype.random = function(callback){
+	that.random = true;
+	if(typeof callback == "function") this.exec(callback);
+	else return this;
+}
+
+Reddit.prototype.related = function(callback){
+	that.related = true;
+	if(typeof callback == "function") this.exec(callback);
+	else return this;
+}
+
 Reddit.prototype.user = function(username, callback){
 	that.username = username;
 	if(typeof callback == "function") this.exec(callback);
@@ -171,17 +183,26 @@ Reddit.prototype.exec = function(callback){
 	var helper = new h(that, exports.cookie, exports.modhash);
 	if(typeof callback == "function"){
 		if(that.login || that.subscribe || that.postage.do){
+			exports.cookie = helper.cookie;
+			exports.modhash = helper.modhash;
 			helper.login(function(data){
 				callback(data);
 				that = helper.reset();
 			})
-		}
-		else if(that.username || that.subreddit || that.comments || that.multireddit || that.query.q != null){
+		}else if(
+			that.username || 
+			(that.subreddit && !that.subscribe && !that.postage.do) || 
+			that.comments || 
+			that.multireddit || 
+			that.query.q != null || 
+			that.random || 
+			(that.related && that.postId)){
 			helper.getStuff(function(data){
 				callback(data);
 				that = helper.reset();
 			});
-		}else if(that.postId && that.delete){
+		}else if(that.related && !that.url) throw new Error("No url specified.");
+		else if((that.postId || that.commentId) && that.delete){
 			helper.deleteStuff(function(data){
 				callback(data);
 				that = helper.reset();
@@ -193,7 +214,7 @@ Reddit.prototype.exec = function(callback){
 				callback(data);
 				that = helper.reset();
 			});
-		}
+		}else throw new Error("Something went terribly wrong.");
 	}else{
 		throw new Error("Please specify a callback.");
 		that = helper.reset();

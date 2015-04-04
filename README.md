@@ -150,6 +150,14 @@ Reddit.subreddit("CatReactionGifs").search("Cat").exec(function(data){
 })
 ```
 
+"What if I want a random thread from a given subreddit?" - Pure easiness! Simply:
+
+```javascript
+Reddit.subreddit("cats").random().exec(function(data){
+    // Some super awesome code
+})
+```
+
 
 ### Multireddits
 You can also get multireddits:
@@ -206,6 +214,14 @@ Reddit.login(user, pass).post("t3_31cvo9").delete().exec(function(data){
 })
 ```
 
+"But I want the related posts of a post to whihc I know the id" - That's even easier! Take a look at this:
+
+```javascript
+Reddit.post("2v5oi5").related().exec(function(data){
+    // Some super awesome code
+})
+```
+
 
 ### Voting
 Upvoting:
@@ -239,6 +255,16 @@ You can also search for every thread - in every subreddit - containing the word 
 ```javascript
 Reddit.search("cat").exec(function(data){
 	// Some super awesome code
+})
+```
+
+
+### Random
+How 'bout getting a random thread, you say?
+
+```javascript
+Reddit.random().exec(function(data){
+    // Some super awesome code
 })
 ```
 

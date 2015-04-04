@@ -51,6 +51,8 @@ helper.prototype.url = function(get){
 		else if(that.multireddit) url += "/m/" + that.multireddit;
 		else if(that.comments) url += "/comments";
 		else if(that.query.q && url.indexOf("search") == -1) url += "/search";
+		else if(that.random) url += "/random";
+		else if(that.related && that.postId) url += "/related/" + that.postId;
 		url += ".json"
 		return url;
 	}else{
@@ -75,7 +77,9 @@ helper.prototype.login = function(callback){
 			(that.subreddit && !that.subscribe && !that.postage.do) || 
 			that.comments || 
 			that.multireddit ||
-			that.query.q != null
+			that.query.q != null || 
+			that.random || 
+			(that.related && that.postId)
 		) this.getStuff(callback);
 		else callback({cookie: exports.cookie, modhash: exports.modhash});
 		return true;
@@ -103,7 +107,9 @@ helper.prototype.login = function(callback){
 					(that.subreddit && !that.subscribe && !that.postage.do) || 
 					that.comments || 
 					that.multireddit ||
-					that.query.q != null
+					that.query.q != null || 
+					that.random || 
+					(that.related && that.postId)
 				) _this.getStuff(callback);
 				else callback(JSON.parse(body).json.data);
 				return true;
@@ -113,6 +119,7 @@ helper.prototype.login = function(callback){
 }
 
 helper.prototype.getStuff = function(callback){
+	console.log(this.url(true) + this.querify(true));
 	request.get(this.url(true) + this.querify(true), {
 		"headers": {
 			"User-Agent": that.userAgent,
@@ -162,6 +169,9 @@ helper.prototype.reset = function(){
 		userAgent: that.userAgent || "Testbot v0.0.1 by /u/undefined",
 		query: {},
 		delete: false,
+		url: null,
+		related: false,
+		random: false, 
 		postId: null,
 		commentId: null,
 		vote: null,

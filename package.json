@@ -19,7 +19,8 @@
     "Wrapper",
     "Wrap",
     "NRAW",
-    "Node.js Reddit API Wrapper"
+    "Node.js",
+    "node"
   ],
   "author": "Mads Cordes (http://mcordes.me/)",
   "license": "MIT",
