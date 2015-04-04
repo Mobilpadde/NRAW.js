@@ -14,7 +14,7 @@ helper.prototype.querify = function(get){
 		}
 		return query.slice(0, -1);
 	}else{
-		if(that.postage.comment.do) query += "api_type=json&text=" + encodeURI(that.postage.comment.text) + "&thing_id=" + that.postage.comment.parent;
+		if(that.postage.comment.do) query += "api_type=json&text=" + encodeURIComponent(that.postage.comment.text) + "&thing_id=" + that.postage.comment.parent;
 		else if(that.postage.link.do)
 			query += "title=" + encodeURI(that.postage.link.title) + 
 					 "&url=" + encodeURI(that.postage.link.link) + 
@@ -61,8 +61,8 @@ helper.prototype.url = function(get){
 		else if(that.postage.do || that.postage.link.do || that.postage.self.do) url = "http://www.reddit.com/api/submit";
 		else if((that.postId || that.commentId) && that.delete) url = "https://www.reddit.com/api/del";
 		else if(that.subscribe && that.subreddit) url = "https://www.reddit.com/api/subscribe";
-		if(that.vote != null) url = "https://www.reddit.com/api/vote";
 		else throw new Error("Something went wrong.");
+		if(that.vote != null) url = "https://www.reddit.com/api/vote";
 		return url;
 	}
 }
