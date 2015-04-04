@@ -215,6 +215,6 @@ Reddit.search("cat").exec(function(data){
  - gilded
  - promoted
 
-[1]:http://mcordes.me/
-[2]:http://mcordes.me/
-[3]:http://mcordes.me/
+[1]:https://github.com/Mobilpadde/NRAW.js#queries
+[2]:https://github.com/Mobilpadde/NRAW.js#filters-user
+[3]:https://github.com/Mobilpadde/NRAW.js#filters-subreddit

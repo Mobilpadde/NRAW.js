@@ -13,9 +13,14 @@
 	"bugs": {
 		"url": "/issues"
 	},
-	"keywords": {
-
-	},
+	"keywords": [
+		"Reddit",
+		"API",
+		"Wrapper",
+		"Wrap",
+		"NRAW",
+		"Node.js Reddit API Wrapper"
+	],
 	"author": {
 		"name": "Mads Cordes",
 		"url": "http://mcordes.me/"
