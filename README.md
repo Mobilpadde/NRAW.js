@@ -19,7 +19,7 @@
 
 
 ## Description
-NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.
+NRAW.js simplifies the use of Reddit's API with an easy-to-use chainable functions.
 
 
 ## How to
@@ -41,7 +41,7 @@ Now, make a new instance of the `r`-object, which you can do by providing a User
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde");
 ```
 
-Or you can fill in three arguments, which are a user-agent, a cookie and the modhash of a reddit-user: 
+Or you can fill in three parameters, which are a user-agent, a cookie and the modhash of a reddit-user: 
 
 ```javascript
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde", cookie, modhash);
@@ -77,7 +77,7 @@ Reddit.user("Mobilpadde").exec(function(data){
 })
 ```
 
-"Thats is stupid! Who'd ever need the latest 25 posts of a user?", you say? Well, NRAW.js is smart enough to handle [queries][1] too!  
+"That's stupid! Who'd ever need the latest 25 posts of a user?", you say? Well, NRAW.js is smart enough to handle [queries][1] too!  
 Let's make a basic request that gets the top five posts (links, self-posts and comments) of a user:
 
 ```javascript
@@ -106,7 +106,7 @@ Reddit.subreddit("CatReactionGifs").exec(function(data){
 ```
 
 "That's not useful *at* all! I hate you" - You.
-Well, like last time, we have [queries][1] that can be applied, but wait! There's more! Subreddits even have the ability to have [filters][3] applied to them!  
+Well, like last time, we have [queries][1] that can be applied, but wait! There's more! Subreddits even have the ability to be [filtered][3]!  
 Let's make a request of the 25 most controversial posts of the last year from a given subreddit, but after the post with the id of `t3_2k0r3o`:
 
 ```javascript
@@ -115,7 +115,7 @@ Reddit.subreddit("CatReactionGifs").controversial().after("t3_2k0r3o").exec(func
 })
 ```
 
-Or how about we make a request that finds the 42 top comments of a given subreddit, using the [filter][3] `comments`:
+Or how about we make a request, that finds the 42 top comments of a given subreddit, using the [filter][3] `comments`:
 
 ```javascript
 Reddit.subreddit("CatReactionGifs").comments().top().limit(42).exec(function(data){
@@ -123,7 +123,7 @@ Reddit.subreddit("CatReactionGifs").comments().top().limit(42).exec(function(dat
 })
 ```
 
-"Can I get  single post if I know it's id?" - Easy peasy!
+"Can I get a single post if I know its id?" - Easy peasy!
 
 ```javascript
 Reddit.subreddit("CatReactionGifs").post("2zmdf9").exec(function(data){
@@ -131,7 +131,7 @@ Reddit.subreddit("CatReactionGifs").post("2zmdf9").exec(function(data){
 })
 ```
 
-"Whoa, that's pretty awesome, but can I post a link?" - Of course you can! We just need to login and use the `post-function:
+"Whoa, that's pretty awesome, but can I post a link?" - Of course you can! We just need to login and use the `post`-function:
 
 ```javascript
 Reddit.login(user, pass).subreddit("CatReactionGifs").post().link("How I feel when there's only one pizza slice left", "http://i.imgur.com/CFSwHdq.gif").exec(function(data){
