@@ -118,7 +118,7 @@ Reddit.prototype.comment = function(parent, text, callback){
 		if(typeof text == "function") this.exec(text);
 		else return this;
 	}else{
-		if(that.postage.comment.do) throw new Error("You can only post one comment at a time.");
+		if(that.postage.comment.do) throw new Error("You can only post one comment at the time.");
 		else{
 			that.postage.comment.do = true;
 			that.postage.comment.parent = parent;

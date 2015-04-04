@@ -61,8 +61,8 @@ helper.prototype.url = function(get){
 		else if(that.postage.do || that.postage.link.do || that.postage.self.do) url = "http://www.reddit.com/api/submit";
 		else if((that.postId || that.commentId) && that.delete) url = "https://www.reddit.com/api/del";
 		else if(that.subscribe && that.subreddit) url = "https://www.reddit.com/api/subscribe";
+		else if(that.vote != null) url = "https://www.reddit.com/api/vote";
 		else throw new Error("Something went wrong.");
-		if(that.vote != null) url = "https://www.reddit.com/api/vote";
 		return url;
 	}
 }
