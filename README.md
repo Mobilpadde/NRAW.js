@@ -41,7 +41,7 @@ Now, make a new instance of the `r`-object, which you can do by providing a User
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde");
 ```
 
-Or you can fill in three parameters, which are a user-agent, a cookie and the modhash of a reddit-user: 
+Or you can fill in three parameters, which are a user-agent, a cookie and the modhash of a Reddit user: 
 
 ```javascript
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde", cookie, modhash);
@@ -65,7 +65,7 @@ Reddit.user("Mobilpadde", function(data){
 })
 ```
 
-In the examples below, the first method will be used.
+In the examples below, the first method will be applied.
 
 
 ### User
@@ -78,7 +78,7 @@ Reddit.user("Mobilpadde").exec(function(data){
 ```
 
 "That's stupid! Who'd ever need the latest 25 posts of a user?", you say? Well, NRAW.js is smart enough to handle [queries][1] too!  
-Let's make a basic request that gets the top five posts (links, self-posts and comments) of a user:
+Let's make a basic request that gets the top five posts (Links, self-posts and comments) of a user:
 
 ```javascript
 Reddit.user("Mobilpadde").sort("top").limit(5).exec(function(data){
@@ -107,7 +107,7 @@ Reddit.subreddit("CatReactionGifs").exec(function(data){
 
 "That's not useful *at* all! I hate you" - You.
 Well, like last time, we have [queries][1] that can be applied, but wait! There's more! Subreddits even have the ability to be [filtered][3]!  
-Let's make a request of the 25 most controversial posts of the last year from a given subreddit, but after the post with the id of `t3_2k0r3o`:
+Let's make a request of the 25 most controversial posts from the last year from a given subreddit, but only the ones after the post with the id `t3_2k0r3o`:
 
 ```javascript
 Reddit.subreddit("CatReactionGifs").controversial().after("t3_2k0r3o").exec(function(data){
@@ -149,7 +149,7 @@ Reddit.subreddit("CatReactionGifs", function(info){
  })
 ```
 
-"Awesome! But what if I don't like a subreddit anymore?" - Well, that's a bit tougher! Ha! Got ya! You should've seen your face! Priceless! Don't worry, it's super easy too:
+"Awesome! But what if I don't like a subreddit anymore?" - Well, that's a bit tougher! Ha! Gotcha! You should've seen your face! Priceless! Don't worry, it's super easy too:
 
 ```javascript
 Reddit.subreddit("DogReactionGifs", function(info){
@@ -167,7 +167,7 @@ Reddit.subreddit("CatReactionGifs").search("Cat").exec(function(data){
 })
 ```
 
-"What if I want a random thread from a given subreddit?" - Pure easiness! Simply:
+"What if I want a random thread from a given subreddit?" - Pure easiness! Simply do:
 
 ```javascript
 Reddit.subreddit("cats").random().exec(function(data){
@@ -189,7 +189,7 @@ Reddit.user("Mobilpadde").multireddit("kittehs").exec(function(data){
 ### Comments
 How about we play around with some comments for a while?
 
-Let's get all new comments (Login so we don't have to wait 30 seconds before we can request new comments):
+Let's get all the new comments (Login so we don't have to wait 30 seconds before we can request new comments):
 
 ```javascript
 Reddit.login(user, pass).comments().exec(function(data){
@@ -205,7 +205,7 @@ Reddit.login(user, pass).post().comment("t3_31cvo9", "I love you!").exec(functio
 })
 ```
 
-"What if I want to see a specific comment and I have it's id?" - Well, that's super easy like everything else:
+"What if I want to see a specific comment and I have its id?" - Well, that's super easy like everything else:
 
 ```javascript
 Reddit.subreddit("CatReactionGifs").post("2zmdf9").comment("cpkmvc4").exec(function(data){
