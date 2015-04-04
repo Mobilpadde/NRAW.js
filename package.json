@@ -1,0 +1,25 @@
+{
+	"name": "NRAW",
+	"description": "NRAW.js simplifies the use of Reddits API with easy-to-use chainable functions.",
+	"version": "0.0.9",
+	"main": "NRAW.js",
+	"dependencies": {
+		"request": "~2.42.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"bugs": {
+		"url": "/issues"
+	},
+	"keywords": {
+
+	},
+	"author": {
+		"name": "Mads Cordes",
+		"url": "http://mcordes.me/"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}
