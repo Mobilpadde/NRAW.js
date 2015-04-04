@@ -214,7 +214,7 @@ Reddit.login(user, pass).post("t3_31cvo9").delete().exec(function(data){
 })
 ```
 
-"But I want the related posts of a post to whihc I know the id" - That's even easier! Take a look at this:
+"But I want the related posts of a post to which I know the id" - That's even easier! Take a look at this:
 
 ```javascript
 Reddit.post("2v5oi5").related().exec(function(data){
