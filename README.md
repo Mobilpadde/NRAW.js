@@ -17,18 +17,21 @@ Then require it in your server:
 
 ````javascript
 var r = require("nraw");
+
 ```
 
 Now, make a new instance of the `r`-object, which you can do by providing a User-agent.
 
 ```javascript
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde");
+
 ```
 
 Or you can fill in three arguments, which are a user-agent, a cookie and the modhash of a reddit-user: 
 
 ```javascript
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde", cookie, modhash);
+
 ```
 
 
@@ -39,6 +42,7 @@ Executing requests can be done in two ways:
 Reddit.user("Mobilpadde").exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 Or
@@ -47,6 +51,7 @@ Or
 Reddit.user("Mobilpadde", function(data){
     // Some super awesome code
 })
+
 ```
 
 In the examples below, the first method will be used.
@@ -59,6 +64,7 @@ Get the 25 latest posts (Links, self-posts or comments) of a given user:
 Reddit.user("Mobilpadde").exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 "Thats is stupid! Who'd ever need the latest 25 posts of a user?", you say? Well, NRAW.js is smart enough to handle [queries][1] too!  
@@ -68,6 +74,7 @@ Let's make a basic request that gets the top five posts (links, self-posts and c
 Reddit.user("Mobilpadde").sort("top").limit(5).exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 Pretty cool, 'eh?  
@@ -77,6 +84,7 @@ Pretty cool, 'eh?
 Reddit.login(user, pass).user("Mobilpadde").liked().limit(7).exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 ### Subreddit-requests
@@ -86,6 +94,7 @@ Get the 25 latest posts (Links and self-posts) of a given subreddit:
 Reddit.subreddit("CatReactionGifs").exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 "That's not useful *at* all! I hate you" - You.
@@ -96,6 +105,7 @@ Let's make a request of the 25 most controversial posts of the last year from a 
 Reddit.subreddit("CatReactionGifs").controversial().after("t3_2k0r3o").exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 Or how about we make a request that finds the 42 top comments of a given subreddit, using the [filter][3] `comments`:
@@ -104,6 +114,7 @@ Or how about we make a request that finds the 42 top comments of a given subredd
 Reddit.subreddit("CatReactionGifs").comments().top().limit(42).exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 "Can I get  single post if I know it's id?" - Easy peasy!
@@ -112,6 +123,7 @@ Reddit.subreddit("CatReactionGifs").comments().top().limit(42).exec(function(dat
 Reddit.subreddit("CatReactionGifs").post("2zmdf9").exec(function(data){
 	// Some super awesome code
 })
+
 ```
 
 "Whoa, that's pretty awesome, but can I post a link?" - Of cause you can! We just need to login and use the `post-function:
@@ -120,6 +132,7 @@ Reddit.subreddit("CatReactionGifs").post("2zmdf9").exec(function(data){
 Reddit.login(user, pass).subreddit("CatReactionGifs").post().link("How I feel when there's only one pizza slice left", "http://i.imgur.com/CFSwHdq.gif").exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 "Wow! C-c-can I subscribe to subreddits then?" - Yea you can! Though we'll have to get our hands a bit dirty:
@@ -127,9 +140,10 @@ Reddit.login(user, pass).subreddit("CatReactionGifs").post().link("How I feel wh
 ```javascript
 Reddit.subreddit("CatReactionGifs", function(info){
 	Reddit.login(user, pass).subreddit(info.data.children[0].data.subreddit_id).subscribe(function(data){
-		// Some super awesome code
-	 })
- })
+	   // Some super awesome code
+	})
+})
+
 ```
 
 "Awesome! But what if I dont like a subreddit anymore?" - Well, that's a bit tougher! Ha! Got ya! You should've seen your face! Priceless! Don't worry, it's super easy too:
@@ -140,6 +154,7 @@ Reddit.subreddit("DogReactionGifs", function(info){
 		// Some super awesome code
 	})
 })
+
 ```
 
 We can even search through a subreddit:
@@ -148,6 +163,7 @@ We can even search through a subreddit:
 Reddit.subreddit("CatReactionGifs").search("Cat").exec(function(data){
 	// Some super awesome code
 })
+
 ```
 
 
@@ -158,6 +174,7 @@ You can also get multireddits:
 Reddit.user("Mobilpadde").multireddit("kittehs").exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 
@@ -170,6 +187,7 @@ Let's get all new comments (Login so we don't have to wait 30 seconds before we 
 Reddit.login(user, pass).comments().exec(function(data){
     // Some super awesome code
 })
+
 ```
 
 "Well, now for a tough one! Can I post comments?" - Yes! Yes you can! All you need is an id of the parent (In this case we're gonna use `t3_31cvo9`):
