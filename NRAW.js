@@ -1,4 +1,4 @@
-var h = require("./helper.js"),
+var h = require("./helper"),
 	that = {};
 
 exports.cookie = null;

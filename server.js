@@ -48,14 +48,14 @@ app.get("/", function(req, res){
 	/*Reddit.login(process.argv[2], process.argv[3]).post("t3_31bji2").upvote().exec(function(data){
 		res.json(data);
 	})*/
-	/*Reddit.search("Cat").exec(function(data){
+	Reddit.search("Cat").exec(function(data){
 		res.json(data);
-	})*/
+	})
 	/*Reddit.subreddit("CatReactionGifs").search("Cat").exec(function(data){
 		res.json(data);
 	})*/
 	// https://github.com/reddit/reddit/wiki/API
-	res.json({yay: true});
+	//res.json({yay: true});
 })
 
 server.listen(3005, function(){
