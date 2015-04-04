@@ -8,8 +8,6 @@ var express = require("express"),
 	Reddit = new r("Testbot v0.0.9 by Mobilpadde");
 
 app.get("/", function(req, res){ 
-	// https://github.com/Stebon24/redwrap/blob/master/redwrap.js - https://www.npmjs.com/package/redwrap
-	// http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/
 	/*Reddit.user("Mobilpadde").limit(1).exec(function(data){
 		res.json(data);
 	});*/
