@@ -14,7 +14,7 @@ $ npm install nraw
 
 Then require it in your server:
 
-```javascript
+``javascript
 var r = require("nraw");
 ```
 
