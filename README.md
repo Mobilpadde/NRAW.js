@@ -10,6 +10,7 @@ Start by installing NRAW.js:
 
 ```sh
 $ npm install nraw
+
 ```
 
 Then require it in your server:
