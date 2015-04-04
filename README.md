@@ -191,28 +191,28 @@ Reddit.search("cat").exec(function(data){
  - after - *postId*
  - before - *postId*
  - count - 1- 100
- - from - "hour", "week", "month", "year", "all"
  - limit - 1 - 100
+ - from - "hour", "week", "month", "year", "all"
  - sort - "hot", "top", "new", "controversial"
 
 ## Filters (User)
- - overview
  - comments
- - submitted
- - liked
  - disliked
  - hidden
+ - liked
+ - overview
  - saved
+ - submitted
 
 ## Filters (Subreddit)
  - comments
- - hot
- - new
- - rising
  - controversial
- - top
+ - hot
  - gilded
+ - new
  - promoted
+ - rising
+ - top
 
 [1]:https://github.com/Mobilpadde/NRAW.js#queries
 [2]:https://github.com/Mobilpadde/NRAW.js#filters-user
