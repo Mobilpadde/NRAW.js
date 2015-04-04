@@ -315,6 +315,8 @@ Reddit.random().exec(function(data){
  - rising
  - top
 
+ [Top](#nrawjs)
+
 [1]:#queries
 [2]:#filters-user
 [3]:#filters-subreddit
