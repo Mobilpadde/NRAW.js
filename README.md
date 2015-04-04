@@ -131,7 +131,7 @@ Reddit.subreddit("CatReactionGifs").post("2zmdf9").exec(function(data){
 })
 ```
 
-"Whoa, that's pretty awesome, but can I post a link?" - Of cause you can! We just need to login and use the `post-function:
+"Whoa, that's pretty awesome, but can I post a link?" - Of course you can! We just need to login and use the `post-function:
 
 ```javascript
 Reddit.login(user, pass).subreddit("CatReactionGifs").post().link("How I feel when there's only one pizza slice left", "http://i.imgur.com/CFSwHdq.gif").exec(function(data){
