@@ -19,7 +19,7 @@ Reddit.prototype.login = function(username, password, callback){
 	that.credentials.username = username;
 	that.credentials.password = password;
 	that.login = true;
-	if(typeof callback == "function") _this.exec(callback);
+	if(typeof callback == "function") this.exec(callback);
 	else return this;
 }
 
